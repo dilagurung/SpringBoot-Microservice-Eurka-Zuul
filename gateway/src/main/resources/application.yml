@@ -1,0 +1,31 @@
+zuul:
+  routes:
+    chat-micro:
+      url: http://138.197.1.51:9090/chat-micro/
+
+
+    chat-micro-socket:
+      url:
+  prefix: /micro-proxy
+  sensitive-headers:
+    - Cookie,Set-Cookie
+
+server:
+  port: 8090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://138.197.1.51:9090/eureka
+    fetch-registry: true
+    register-with-eureka: true
+ribbon:
+  eureka:
+    enabled: true
+
+
+spring:
+  application:
+     name: chat-micro-api-gateway
+
+
+
